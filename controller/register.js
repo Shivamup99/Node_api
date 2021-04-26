@@ -213,7 +213,7 @@ router.put('/resetpassword',async(req,res)=>{
 
 router.get("/users",async(req,res)=>{
     try {
-        const user = await User.find({}).select('-password -cpassword  -__v -created_at')
+        const user = await User.find().select('-password -cpassword  -__v -created_at')
         res.status(200).json(user)
     } catch (error) {
         res.status(422).json({message:error.message})
