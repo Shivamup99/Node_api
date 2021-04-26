@@ -7,7 +7,7 @@ const admin = require("../middleware/admin")
 const {check , validationResult} = require('express-validator')
 const router = express.Router()
 
-router.get("/allcourse",auth,async(req,res)=>{
+router.get("/allcourse",async(req,res)=>{
     try {
      let course = await Course.find().select('-user -__v ')
      res.status(200).json(course)
