@@ -211,7 +211,7 @@ router.put('/resetpassword',async(req,res)=>{
     }
 })
 
-router.get("/users",auth,async(req,res)=>{
+router.get("/users",async(req,res)=>{
     try {
         const user = await User.find({}).select('-password -cpassword  -__v -created_at')
         res.status(200).json(user)
