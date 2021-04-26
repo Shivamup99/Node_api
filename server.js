@@ -11,7 +11,7 @@ const course = require("./controller/course")
 app.use(cors());
 
 const port = process.env.PORT || 8000
- db
+ db()
 
 
 
