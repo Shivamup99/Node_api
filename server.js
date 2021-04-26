@@ -1,27 +1,23 @@
 
 const express = require('express')
+const mongoose=require('mongoose')
 const cors = require('cors')
 const app = express();
- app.use(cors());
- const error = require("./middleware/error")
-const multer = require('multer')
 const path=require('path')
-
-
-require('./models/db')
-require("express-async-errors")
-const bodyParser = require('body-parser')
-const cookieParser = require('cookie-parser')
-const port = process.env.PORT || 8000
+const db= require('./models/db')
 const user = require("./controller/register")
 const record = require("./controller/user")
 const course = require("./controller/course")
+app.use(cors());
 
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({extended:true}))
+const port = process.env.PORT || 8000
+ db
+
+
+
+
 app.use(express.json())
 
-app.use(cookieParser())
 app.use('/api/user',user)
 app.use('/api/user/data',record)
 app.use('/api/user/course',course)
